@@ -1,3 +1,5 @@
+'use strict'
+
 class FluentValidation {
   constructor() {
     this.value = 0;
@@ -33,4 +35,4 @@ class FluentValidation {
   }
 }
 
-module.exports = { FluentValidation }
+module.exports = FluentValidation;

@@ -1,4 +1,4 @@
-const {FluentValidation} = require('../dist/FluentValidation');
+const FluentValidation = require('../dist/FluentValidation');
 
 test('Test model sampe', () => {
 
