@@ -1,6 +1,6 @@
 {
-  "name": "fluentvalidation",
-  "version": "0.0.1",
+  "name": "@kalstong/fluentvalidation",
+  "version": "0.0.2",
   "description": "A library for building validation based on fluent rules",
   "main": "dist/FluentValidation.js",
   "scripts": {
@@ -11,9 +11,9 @@
     "url": "git+https://github.com/kalstong/FluentValidation.js.git"
   },
   "keywords": [
-    "javascript",
     "fluent",
-    "validation"
+    "validation",
+    "validator"
   ],
   "author": "Ricardo Silva",
   "license": "MIT",
