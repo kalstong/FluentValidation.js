@@ -8,9 +8,13 @@ This is a w.i.p. version, there is a couple of commits that need to be pushed be
 A node.js package for providing a model validation based on a chain of rules with a fluent syntax.
 
 ## Get Started
-This is a [Node.js](https://nodejs.org/en/) module, it is not available yet through the
+This is a [Node.js](https://nodejs.org/en/) module available through the
 [npm registry](https://www.npmjs.com/). Installation is using the
-[`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally) but at this moment only refering the git repo on the package.json file:
+[`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
+
+```sh
+npm i @kalstong/fluentvalidation
+```
 
 
 ### Example
