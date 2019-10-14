@@ -3,7 +3,7 @@ const FluentValidation = require('../dist/FluentValidation');
 test('Test model sampe', () => {
 
     const model = {
-        name : 'Jon Dow',
+        name : 'John Doe',
         age : 'unknown'
     }
 

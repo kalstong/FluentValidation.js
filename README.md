@@ -20,7 +20,7 @@ npm i @kalstong/fluentvalidation
 ### Example
 ```javascript
 const person = {
-    name : 'Jon Dow',
+    name : 'John Doe',
     age : 'unknown'
 }
 
