@@ -1,4 +1,10 @@
 'use strict'
+const NotEmpty = require('../dist/plugins/NotEmpty');
+const IsNumber = require('../dist/plugins/IsNumber');
+const IsIPV4 = require('../dist/plugins/IsIPV4');
+const IsIPV6 = require('../dist/plugins/IsIPV6');
+const IsNetworkPort = require('../dist/plugins/IsNetworkPort');
+const IsNotNullOrWhitespace = require('./plugins/IsNotNullOrWhitespace');
 
 class FluentValidation {
   constructor() {
@@ -17,16 +23,6 @@ class FluentValidation {
     this.value = arg;
     return this;
   }
-  NotEmpty() {
-    if (this.break == true) return;
-    this.hasError = (  this.value === null || this.value.match(/^ *$/) !== null)
-    return this;
-  }
-  IsNumber() {
-    if (this.break == true) return;
-    this.hasError = isNaN(this.value)
-    return this;
-  }
   ErrorMessage(value) { 
     if (this.break == true) return;
     if (this.hasError)
@@ -34,5 +30,12 @@ class FluentValidation {
     return this;
   }
 }
+
+FluentValidation.prototype.NotEmpty = NotEmpty;
+FluentValidation.prototype.IsNumber = IsNumber;
+FluentValidation.prototype.IsIPV4 = IsIPV4;
+FluentValidation.prototype.IsIPV6 = IsIPV6;
+FluentValidation.prototype.IsNetworkPort = IsNetworkPort;
+FluentValidation.prototype.IsNotNullOrWhitespace = IsNotNullOrWhitespace;
 
 module.exports = FluentValidation;

@@ -1,9 +1,19 @@
 # FluentValidation.js Documentation
 
-## Rules
+__... Work in progress ...__
 
+## How to start
 
-## Chain
+## Create a basic validation
 
+## Create a chain validation
+
+## What Rules are included
+- NotEmpty
+- IsNumber
+- IsIPV4
+- IsIPV6
+- IsNetworkPort
+- IsNotNullOrWhitespace
 
 ## Custom Validation
