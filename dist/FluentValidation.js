@@ -23,6 +23,11 @@ class FluentValidation {
     this.value = arg;
     return this;
   }
+  Must(f) {
+    if (this.break == true) return;
+    this.hasError = !f(this.value);
+    return this;
+  }
   ErrorMessage(value) { 
     if (this.break == true) return;
     if (this.hasError)
