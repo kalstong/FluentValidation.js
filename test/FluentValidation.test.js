@@ -94,3 +94,25 @@ test('Is not null or Whitespace', () => {
 
     expect(validation.length).toBe(3);
 })
+
+test('User-defined validation', () => {
+    const model = {
+        state : 'idle'
+    }
+
+    const config = {
+        useChain : true
+    }
+
+    function BeActive(data) {
+        return (data === 'active');
+    }
+
+    let validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.state).IsNotNullOrWhitespace().ErrorMessage("State cannot be empty")
+        .RuleFor(model.state).Must(BeActive).ErrorMessage("State is not Active")
+        .errors;
+
+    expect(validation.length).toBe(1);
+})
