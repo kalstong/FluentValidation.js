@@ -5,6 +5,8 @@ const IsIPV4 = require('../dist/plugins/IsIPV4');
 const IsIPV6 = require('../dist/plugins/IsIPV6');
 const IsNetworkPort = require('../dist/plugins/IsNetworkPort');
 const IsNotNullOrWhitespace = require('./plugins/IsNotNullOrWhitespace');
+const IsEmail = require('./plugins/IsEmail');
+const IsBase64 = require('./plugins/IsBase64');
 
 class FluentValidation {
   constructor() {
@@ -42,5 +44,7 @@ FluentValidation.prototype.IsIPV4 = IsIPV4;
 FluentValidation.prototype.IsIPV6 = IsIPV6;
 FluentValidation.prototype.IsNetworkPort = IsNetworkPort;
 FluentValidation.prototype.IsNotNullOrWhitespace = IsNotNullOrWhitespace;
+FluentValidation.prototype.IsEmail = IsEmail;
+FluentValidation.prototype.IsBase64 = IsBase64;
 
 module.exports = FluentValidation;

@@ -116,3 +116,41 @@ test('User-defined validation', () => {
 
     expect(validation.length).toBe(1);
 })
+
+test('Is Email', () => {
+    const model = {
+        email : 'john.doe@johndoe.com'
+    }
+
+    const config = {
+        useChain : true
+    }
+
+    let validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.email).NotEmpty().ErrorMessage("Email cannot be empty")
+        .RuleFor(model.email).IsEmail().ErrorMessage("Email be a valid Email address")
+        .errors;
+
+    expect(validation.length).toBe(0);
+})
+
+
+
+test('Is a valid Base64 string', () => {
+    const model = {
+        base64String : 'QGthbHN0b25nL2ZsdWVudHZhbGlkYXRpb24='
+    }
+
+    const config = {
+        useChain : true
+    }
+
+    let validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.base64String).NotEmpty().ErrorMessage("Base64String cannot be empty")
+        .RuleFor(model.base64String).IsBase64().ErrorMessage("Base64String must have a valid base64 encoding")
+        .errors;
+
+    expect(validation.length).toBe(0);
+})

@@ -2,9 +2,6 @@
 
 Inspired by the awsome [FluentValdiation .NET](https://github.com/JeremySkinner/FluentValidation/blob/master/README.md)
 
-## Disclaimer
-This is a w.i.p. version, there is a couple of commits that need to be pushed before the first release.
-
 A node.js package for providing a model validation based on a chain of rules with a fluent syntax.
 
 ## Get Started
@@ -17,7 +14,7 @@ npm i @kalstong/fluentvalidation
 ```
 
 
-### Example
+### Example 1 - Standard rules
 ```javascript
 const person = {
     name : 'John Doe',
@@ -40,6 +37,31 @@ console.log(validation);
 // [ { error: 'Age must be a number' } ]
 ```
 
+### Example 2 - Custom rules
+```javascript
+const model = {
+    state : 'idle'
+}
+
+const config = {
+    useChain : true // Don't stop at first error
+}
+
+function BeActive(data) {
+    return (data === 'active');
+}
+
+let validation = new FluentValidation()
+    .Config(config)
+    .RuleFor(model.state).IsNotNullOrWhitespace().ErrorMessage("State cannot be empty")
+    .RuleFor(model.state).Must(BeActive).ErrorMessage("State is not Active")
+    .errors;
+
+console.log(validation);
+
+// Output:
+// [ { error: 'State is not Active' } ]
+```
 
 ## Documentation
 
