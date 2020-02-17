@@ -17,28 +17,34 @@ class FluentValidation {
     this.value = 0;
     this.errors = [];
     this.hasError = false;
-    this.cfg = {};
-    this.break = (this.hasError == true && this.cfg.useChain == false);
+    this.cfg = { breakOnFirstError : true };
   }
   Config(cfg) {
     this.cfg = cfg;
     return this;
   }
   RuleFor(arg) {
-    if (this.break == true) return;
+    if (this.hasError === true && this.cfg.breakOnFirstError === true) return this;
     this.value = arg;
     return this;
   }
   Must(f) {
-    if (this.break == true) return;
+    if (this.hasError === true && this.cfg.breakOnFirstError === true) return this;
     this.hasError = !f(this.value);
     return this;
   }
   ErrorMessage(value) { 
-    if (this.break == true) return;
+    if (this.hasError === true && this.cfg.breakOnFirstError === true && this.errors.length === 0) {
+      this.errors.push({error: value});
+      return this;
+    }
+
+    if (this.hasError === true && this.cfg.breakOnFirstError === true) return this;
+    
     if (this.hasError)
       this.errors.push({error: value});
-    return this;
+    
+      return this;
   }
 }
 

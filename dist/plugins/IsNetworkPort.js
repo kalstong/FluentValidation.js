@@ -1,5 +1,4 @@
 function IsNetworkPort() {
-    if (this.break == true) return;
     var min = 1;
     var max = 65535;
 

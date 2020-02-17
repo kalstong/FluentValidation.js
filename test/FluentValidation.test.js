@@ -7,7 +7,7 @@ test('Is Number', () => {
     }
 
     const config = {
-        useChain : true
+        breakOnFirstError : false
     }
 
     let validation = new FluentValidation()
@@ -25,7 +25,7 @@ test('Is IPV4 address', () => {
     }
 
     const config = {
-        useChain : true
+        breakOnFirstError : false
     }
 
     let validation = new FluentValidation()
@@ -43,7 +43,7 @@ test('Is IPV6 address', () => {
     }
 
     const config = {
-        useChain : true
+        breakOnFirstError : true
     }
 
     let validation = new FluentValidation()
@@ -61,7 +61,7 @@ test('Is Network port', () => {
     }
 
     const config = {
-        useChain : false
+        breakOnFirstError : false
     }
 
     let validation = new FluentValidation()
@@ -80,7 +80,7 @@ test('Is not null or Whitespace', () => {
     }
 
     const config = {
-        useChain : true
+        breakOnFirstError : false
     }
 
     let validation = new FluentValidation()
@@ -99,7 +99,7 @@ test('User-defined validation', () => {
     }
 
     const config = {
-        useChain : true
+        breakOnFirstError : true
     }
 
     function BeActive(data) {
@@ -121,7 +121,7 @@ test('Is Email', () => {
     }
 
     const config = {
-        useChain : true
+        breakOnFirstError : true
     }
 
     let validation = new FluentValidation()
@@ -141,7 +141,7 @@ test('Is a valid Base64 string', () => {
     }
 
     const config = {
-        useChain : true
+        breakOnFirstError : true
     }
 
     let validation = new FluentValidation()
@@ -160,7 +160,7 @@ test('Is Greater/Smaller', () => {
     }
 
     const config = {
-        useChain : false
+        breakOnFirstError : false
     }
 
     let validation = new FluentValidation()
@@ -179,7 +179,7 @@ test('Is Greater/Smaller or Equal', () => {
     }
 
     const config = {
-        useChain : true
+        breakOnFirstError : true
     }
 
     let validation = new FluentValidation()
@@ -187,7 +187,6 @@ test('Is Greater/Smaller or Equal', () => {
         .RuleFor(model.age).IsBiggerOrEqualThan(18).ErrorMessage("Age must be bigger or equal than 18")
         .RuleFor(model.age).IsSmallerOrEqualThan(20).ErrorMessage("Age must be smaller or equal than 20")
         .errors;
-    console.log(validation);
 
     expect(validation.length).toBe(0);
 });
