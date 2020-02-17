@@ -17,6 +17,10 @@ __... Work in progress ...__
 - IsNotNullOrWhitespace
 - IsEmail
 - IsBase64
+- IsBigger
+- IsSmaller
+- IsBiggerThan
+- IsSmallerThan
 
 ## Custom Validation
 - User-defined validations shall be used with the chain function Must().
@@ -28,7 +32,7 @@ const model = {
 }
 
 const config = {
-    useChain : true // Don't stop at first error
+    breakOnFirstError : true // Stop at first error
 }
 
 function BeActive(data) {
@@ -54,8 +58,8 @@ The validation shall respect the following syntax:
 
 ``` javascript
 function MY_VALIDATION_METHOD() {
-    if (this.break == true) return;
-    
+
+    // user this.value for the received value to validate
     // Insert the validation logic here
     // this.hasError shall be true or false bases on the validation login
     

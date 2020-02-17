@@ -22,7 +22,7 @@ const person = {
 }
 
 const config = {
-    useChain : true // Don't stop at first error
+    breakOnFirstError : true // Stop at first error
 }
 
 let validation = new FluentValidation()
@@ -44,7 +44,7 @@ const model = {
 }
 
 const config = {
-    useChain : true // Don't stop at first error
+    breakOnFirstError : true // Stop at first error
 }
 
 function BeActive(data) {
