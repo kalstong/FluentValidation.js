@@ -7,6 +7,9 @@ const IsNetworkPort = require('../dist/plugins/IsNetworkPort');
 const IsNotNullOrWhitespace = require('./plugins/IsNotNullOrWhitespace');
 const IsEmail = require('./plugins/IsEmail');
 const IsBase64 = require('./plugins/IsBase64');
+const IsBiggerThan = require('./plugins/isBigger');
+const IsSmallerThan = require('./plugins/isSmaller');
+
 
 class FluentValidation {
   constructor() {
@@ -46,5 +49,7 @@ FluentValidation.prototype.IsNetworkPort = IsNetworkPort;
 FluentValidation.prototype.IsNotNullOrWhitespace = IsNotNullOrWhitespace;
 FluentValidation.prototype.IsEmail = IsEmail;
 FluentValidation.prototype.IsBase64 = IsBase64;
+FluentValidation.prototype.IsBiggerThan = IsBiggerThan;
+FluentValidation.prototype.IsSmallerThan = IsSmallerThan;
 
 module.exports = FluentValidation;

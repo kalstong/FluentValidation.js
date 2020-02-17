@@ -154,3 +154,22 @@ test('Is a valid Base64 string', () => {
 
     expect(validation.length).toBe(0);
 })
+
+test('Is Greater', () => {
+    const model = {
+        name : 'John Doe',
+        age : 22
+    }
+
+    const config = {
+        useChain : true
+    }
+
+    let validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.age).IsBiggerThan(18).ErrorMessage("Age must be bigger than 18")
+        .RuleFor(model.age).IsSmallerThan(20).ErrorMessage("Age must be bigger than 20")
+        .errors;
+
+    expect(validation.length).toBe(1);
+});
