@@ -69,8 +69,6 @@ test('Is Network port', () => {
         .RuleFor(model.port).IsNetworkPort().ErrorMessage("Port must be a valid network port")
         .errors;
 
-    console.log(validation);
-
     expect(validation.length).toBe(0);
 })
 
@@ -155,10 +153,29 @@ test('Is a valid Base64 string', () => {
     expect(validation.length).toBe(0);
 })
 
-test('Is Greater', () => {
+test('Is Greater/Smaller', () => {
     const model = {
         name : 'John Doe',
-        age : 22
+        age : 18
+    }
+
+    const config = {
+        useChain : false
+    }
+
+    let validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.age).IsBiggerThan(18).ErrorMessage("Age must be bigger than 18")
+        .RuleFor(model.age).IsSmallerThan(22).ErrorMessage("Age must be smaller than 20")
+        .errors;
+
+    expect(validation.length).toBe(1);
+});
+
+test('Is Greater/Smaller or Equal', () => {
+    const model = {
+        name : 'John Doe',
+        age : 20
     }
 
     const config = {
@@ -167,9 +184,10 @@ test('Is Greater', () => {
 
     let validation = new FluentValidation()
         .Config(config)
-        .RuleFor(model.age).IsBiggerThan(18).ErrorMessage("Age must be bigger than 18")
-        .RuleFor(model.age).IsSmallerThan(20).ErrorMessage("Age must be bigger than 20")
+        .RuleFor(model.age).IsBiggerOrEqualThan(18).ErrorMessage("Age must be bigger or equal than 18")
+        .RuleFor(model.age).IsSmallerOrEqualThan(20).ErrorMessage("Age must be smaller or equal than 20")
         .errors;
+    console.log(validation);
 
-    expect(validation.length).toBe(1);
+    expect(validation.length).toBe(0);
 });
