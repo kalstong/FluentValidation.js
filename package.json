@@ -1,6 +1,6 @@
 {
   "name": "@kalstong/fluentvalidation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A library for building validation based on fluent rules",
   "main": "dist/FluentValidation.js",
   "scripts": {
