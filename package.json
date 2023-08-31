@@ -4,7 +4,7 @@
   "description": "A library for building validation based on fluent rules",
   "main": "dist/FluentValidation.js",
   "scripts": {
-    "test": "jest",
+    "test": "npx jest",
     "upgrade-dependencies": "npx npm-check --update"
   },
   "repository": {
