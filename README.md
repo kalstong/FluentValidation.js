@@ -4,6 +4,8 @@ Inspired by the awsome [FluentValdiation .NET](https://github.com/JeremySkinner/
 
 A node.js package for providing a model validation based on a chain of rules with a fluent syntax.
 
+[![Tests](https://github.com/kalstong/FluentValidation.js/actions/workflows/nodejs.yml/badge.svg?branch=master)](https://github.com/kalstong/FluentValidation.js/actions/workflows/nodejs.yml)
+
 ## Get Started
 This is a [Node.js](https://nodejs.org/en/) module available through the
 [npm registry](https://www.npmjs.com/). Installation is using the
@@ -16,6 +18,8 @@ npm i @kalstong/fluentvalidation
 
 ### Example 1 - Standard rules
 ```javascript
+import FluentValidation from '@kalstong/fluentvalidation';
+
 const person = {
     name : 'John Doe',
     age : 'unknown'
@@ -25,7 +29,7 @@ const config = {
     breakOnFirstError : true // Stop at first error
 }
 
-let validation = new FluentValidation()
+const validation = new FluentValidation()
     .Config(config)
     .RuleFor(person.name).NotEmpty().ErrorMessage("Name cannot be empty")
     .RuleFor(person.age).IsNumber().ErrorMessage("Age must be a number")
@@ -39,6 +43,8 @@ console.log(validation);
 
 ### Example 2 - Custom rules
 ```javascript
+import FluentValidation from '@kalstong/fluentvalidation';
+
 const model = {
     state : 'idle'
 }
@@ -51,7 +57,7 @@ function BeActive(data) {
     return (data === 'active');
 }
 
-let validation = new FluentValidation()
+const validation = new FluentValidation()
     .Config(config)
     .RuleFor(model.state).IsNotNullOrWhitespace().ErrorMessage("State cannot be empty")
     .RuleFor(model.state).Must(BeActive).ErrorMessage("State is not Active")

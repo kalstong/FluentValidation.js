@@ -1,4 +1,4 @@
-const FluentValidation = require('../dist/FluentValidation');
+import FluentValidation from '../dist/FluentValidation';
 
 test('Is Number', (done) => {
     const model = {
@@ -10,7 +10,7 @@ test('Is Number', (done) => {
         breakOnFirstError : false
     }
 
-    let validation = new FluentValidation()
+    const validation = new FluentValidation()
         .Config(config)
         .RuleFor(model.name).NotEmpty().ErrorMessage("Name cannot be empty")
         .RuleFor(model.age).IsNumber().ErrorMessage("Age must be a number")
@@ -29,7 +29,7 @@ test('Is IPV4 address', (done) => {
         breakOnFirstError : false
     }
 
-    let validation = new FluentValidation()
+    const validation = new FluentValidation()
         .Config(config)
         .RuleFor(model.ip).NotEmpty().ErrorMessage("IP cannot be empty")
         .RuleFor(model.ip).IsIPV4().ErrorMessage("IP must be a valid IPV4 address")
@@ -48,7 +48,7 @@ test('Is IPV6 address', (done) => {
         breakOnFirstError : true
     }
 
-    let validation = new FluentValidation()
+    const validation = new FluentValidation()
         .Config(config)
         .RuleFor(model.ip).NotEmpty().ErrorMessage("IP cannot be empty")
         .RuleFor(model.ip).IsIPV6().ErrorMessage("IP must be a valid IPV6 address")
@@ -67,7 +67,7 @@ test('Is Network port', (done) => {
         breakOnFirstError : false
     }
 
-    let validation = new FluentValidation()
+    const validation = new FluentValidation()
         .Config(config)
         .RuleFor(model.port).IsNetworkPort().ErrorMessage("Port must be a valid network port")
         .errors;
@@ -87,7 +87,7 @@ test('Is not null or Whitespace', (done) => {
         breakOnFirstError : false
     }
 
-    let validation = new FluentValidation()
+    const validation = new FluentValidation()
         .Config(config)
         .RuleFor(model.region).IsNotNullOrWhitespace().ErrorMessage("Region cannot be empty")
         .RuleFor(model.state).IsNotNullOrWhitespace().ErrorMessage("State cannot be empty")
@@ -111,7 +111,7 @@ test('User-defined validation', (done) => {
         return (data === 'active');
     }
 
-    let validation = new FluentValidation()
+    const validation = new FluentValidation()
         .Config(config)
         .RuleFor(model.state).IsNotNullOrWhitespace().ErrorMessage("State cannot be empty")
         .RuleFor(model.state).Must(BeActive).ErrorMessage("State is not Active")
@@ -130,7 +130,7 @@ test('Is Email', (done) => {
         breakOnFirstError : true
     }
 
-    let validation = new FluentValidation()
+    const validation = new FluentValidation()
         .Config(config)
         .RuleFor(model.email).NotEmpty().ErrorMessage("Email cannot be empty")
         .RuleFor(model.email).IsEmail().ErrorMessage("Email be a valid Email address")
@@ -151,7 +151,7 @@ test('Is a valid Base64 string', (done) => {
         breakOnFirstError : true
     }
 
-    let validation = new FluentValidation()
+    const validation = new FluentValidation()
         .Config(config)
         .RuleFor(model.base64String).NotEmpty().ErrorMessage("Base64String cannot be empty")
         .RuleFor(model.base64String).IsBase64().ErrorMessage("Base64String must have a valid base64 encoding")
@@ -171,7 +171,7 @@ test('Is Greater/Smaller', (done) => {
         breakOnFirstError : false
     }
 
-    let validation = new FluentValidation()
+    const validation = new FluentValidation()
         .Config(config)
         .RuleFor(model.age).IsBiggerThan(18).ErrorMessage("Age must be bigger than 18")
         .RuleFor(model.age).IsSmallerThan(22).ErrorMessage("Age must be smaller than 20")
@@ -191,7 +191,7 @@ test('Is Greater/Smaller or Equal', (done) => {
         breakOnFirstError : true
     }
 
-    let validation = new FluentValidation()
+    const validation = new FluentValidation()
         .Config(config)
         .RuleFor(model.age).IsBiggerOrEqualThan(18).ErrorMessage("Age must be bigger or equal than 18")
         .RuleFor(model.age).IsSmallerOrEqualThan(20).ErrorMessage("Age must be smaller or equal than 20")
