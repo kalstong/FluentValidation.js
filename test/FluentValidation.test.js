@@ -1,6 +1,6 @@
 const FluentValidation = require('../dist/FluentValidation');
 
-test('Is Number', () => {
+test('Is Number', (done) => {
     const model = {
         name : 'John Doe',
         age : 'unknown'
@@ -20,7 +20,7 @@ test('Is Number', () => {
     done();
 });
 
-test('Is IPV4 address', () => {
+test('Is IPV4 address', (done) => {
     const model = {
         ip : '192.168.0.1'
     }
@@ -39,7 +39,7 @@ test('Is IPV4 address', () => {
     done();
 })
 
-test('Is IPV6 address', () => {
+test('Is IPV6 address', (done) => {
     const model = {
         ip : '::1'
     }
@@ -58,7 +58,7 @@ test('Is IPV6 address', () => {
     done();
 })
 
-test('Is Network port', () => {
+test('Is Network port', (done) => {
     const model = {
         port : 1024
     }
@@ -76,7 +76,7 @@ test('Is Network port', () => {
     done();
 })
 
-test('Is not null or Whitespace', () => {
+test('Is not null or Whitespace', (done) => {
     const model = {
         region : ' ',
         state : undefined,
@@ -98,7 +98,7 @@ test('Is not null or Whitespace', () => {
     done();
 })
 
-test('User-defined validation', () => {
+test('User-defined validation', (done) => {
     const model = {
         state : 'idle'
     }
@@ -121,7 +121,7 @@ test('User-defined validation', () => {
     done();
 })
 
-test('Is Email', () => {
+test('Is Email', (done) => {
     const model = {
         email : 'john.doe@johndoe.com'
     }
@@ -142,7 +142,7 @@ test('Is Email', () => {
 
 
 
-test('Is a valid Base64 string', () => {
+test('Is a valid Base64 string', (done) => {
     const model = {
         base64String : 'QGthbHN0b25nL2ZsdWVudHZhbGlkYXRpb24='
     }
@@ -161,7 +161,7 @@ test('Is a valid Base64 string', () => {
     done();
 })
 
-test('Is Greater/Smaller', () => {
+test('Is Greater/Smaller', (done) => {
     const model = {
         name : 'John Doe',
         age : 18
@@ -181,7 +181,7 @@ test('Is Greater/Smaller', () => {
     done();
 });
 
-test('Is Greater/Smaller or Equal', () => {
+test('Is Greater/Smaller or Equal', (done) => {
     const model = {
         name : 'John Doe',
         age : 20
