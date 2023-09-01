@@ -1,6 +1,8 @@
-function IsNetworkPort() {
-    var min = 1;
-    var max = 65535;
+import FluentValidation from "../FluentValidation";
+
+export default function IsNetworkPort() : FluentValidation {
+    const min = 1;
+    const max = 65535;
 
     if (!isNaN(this.value)) {
         if ((this.value >= min && this.value <= max)) {
@@ -12,5 +14,3 @@ function IsNetworkPort() {
     this.hasError = true;
     return this;
 }
-
-module.exports = IsNetworkPort;
