@@ -17,6 +17,7 @@ test('Is Number', () => {
         .errors;
 
     expect(validation.length).toBe(1);
+    done();
 });
 
 test('Is IPV4 address', () => {
@@ -35,6 +36,7 @@ test('Is IPV4 address', () => {
         .errors;
 
     expect(validation.length).toBe(0);
+    done();
 })
 
 test('Is IPV6 address', () => {
@@ -53,6 +55,7 @@ test('Is IPV6 address', () => {
         .errors;
 
     expect(validation.length).toBe(0);
+    done();
 })
 
 test('Is Network port', () => {
@@ -70,6 +73,7 @@ test('Is Network port', () => {
         .errors;
 
     expect(validation.length).toBe(0);
+    done();
 })
 
 test('Is not null or Whitespace', () => {
@@ -91,6 +95,7 @@ test('Is not null or Whitespace', () => {
         .errors;
 
     expect(validation.length).toBe(3);
+    done();
 })
 
 test('User-defined validation', () => {
@@ -113,6 +118,7 @@ test('User-defined validation', () => {
         .errors;
 
     expect(validation.length).toBe(1);
+    done();
 })
 
 test('Is Email', () => {
@@ -131,6 +137,7 @@ test('Is Email', () => {
         .errors;
 
     expect(validation.length).toBe(0);
+    done();
 })
 
 
@@ -151,6 +158,7 @@ test('Is a valid Base64 string', () => {
         .errors;
 
     expect(validation.length).toBe(0);
+    done();
 })
 
 test('Is Greater/Smaller', () => {
@@ -170,6 +178,7 @@ test('Is Greater/Smaller', () => {
         .errors;
 
     expect(validation.length).toBe(1);
+    done();
 });
 
 test('Is Greater/Smaller or Equal', () => {
@@ -189,4 +198,5 @@ test('Is Greater/Smaller or Equal', () => {
         .errors;
 
     expect(validation.length).toBe(0);
+    done();
 });
