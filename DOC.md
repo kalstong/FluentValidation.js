@@ -3,18 +3,23 @@
 *[Version 2.0.0](https://github.com/kalstong/FluentValidation.js/releases/tag/v2.0.0)*
 
 ## Validation Rules
-- NotEmpty
-- IsNumber
+- IsArray
+- IsBase64
+- IsBiggerThan
+- IsBiggerOrEqualThan
+- IsBool
+- IsDate
+- IsEmail
+- IsInteger
 - IsIPV4
 - IsIPV6
 - IsNetworkPort
 - IsNotNullOrWhitespace
-- IsEmail
-- IsBase64
-- IsBigger
-- IsSmaller
-- IsBiggerThan
+- IsNumber
+- IsObject
 - IsSmallerThan
+- IsSmallerOrEqualThan
+- NotEmpty
 
 ## How to create custom validation rules
 - User-defined validations shall be used with the chain function Must().
