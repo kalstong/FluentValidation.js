@@ -1,5 +1,32 @@
 import FluentValidation from '../dist/FluentValidation';
 
+test('Is Array', (done) => {
+    const model = {
+        array : [],
+        notArray : {}
+    }
+
+    const config = {
+        breakOnFirstError : false
+    }
+
+    let validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.array).IsArray().ErrorMessage("Model array must be an array")
+        .errors;
+
+    expect(validation.length).toBe(1);
+
+    validation = new FluentValidation()
+    .Config(config)
+    .RuleFor(model.notArray).IsArray().ErrorMessage("Model notArray must be an array")
+    .errors;
+
+    expect(validation.length).toBe(0);
+
+    done();
+});
+
 test('Is Number', (done) => {
     const model = {
         name : 'John Doe',
@@ -140,8 +167,6 @@ test('Is Email', (done) => {
     done();
 })
 
-
-
 test('Is a valid Base64 string', (done) => {
     const model = {
         base64String : 'QGthbHN0b25nL2ZsdWVudHZhbGlkYXRpb24='
@@ -198,5 +223,192 @@ test('Is Greater/Smaller or Equal', (done) => {
         .errors;
 
     expect(validation.length).toBe(0);
+    done();
+});
+
+test('Is Bool', (done) => {
+    const model = {
+        boolean1 : true,
+        boolean2 : 1,
+        boolean3: "1"
+    }
+
+    const config = {
+        breakOnFirstError : false
+    }
+
+    let validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.boolean1).IsBool().ErrorMessage("Model property must be a boolean")
+        .errors;
+
+    expect(validation.length).toBe(1);
+
+    validation = new FluentValidation()
+    .Config(config)
+    .RuleFor(model.boolean2).IsBool().ErrorMessage("Model property must be a boolean")
+    .errors;
+
+    expect(validation.length).toBe(0);
+
+    validation = new FluentValidation()
+    .Config(config)
+    .RuleFor(model.boolean3).IsBool().ErrorMessage("Model property must be a boolean")
+    .errors;
+
+    expect(validation.length).toBe(0);
+
+    done();
+});
+
+test('Is Integer', (done) => { 
+    const model = {
+        integer1 : 1,
+        integer2 : 1.1,
+        integer3 : "1"
+    }
+
+    const config = {
+        breakOnFirstError : false
+    }
+
+    let validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.integer1).IsInteger().ErrorMessage("Model property must be an integer")
+        .errors;
+
+    expect(validation.length).toBe(1);
+
+    validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.integer2).IsInteger().ErrorMessage("Model property must be an integer")
+        .errors;
+
+    expect(validation.length).toBe(0);
+
+    validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.integer3).IsInteger().ErrorMessage("Model property must be an integer")
+        .errors;
+
+    expect(validation.length).toBe(0);
+
+    done();
+});
+
+test('Is Object', (done) => { 
+    const model = {
+        obj1 : {},
+        obj2 : [],
+    }
+
+    const config = {
+        breakOnFirstError : false
+    }
+
+    let validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.obj1).IsObject().ErrorMessage("Model property must be an object")
+        .errors;
+
+    expect(validation.length).toBe(1);
+
+    validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.obj2).IsObject().ErrorMessage("Model property must be an object")
+        .errors;
+
+    expect(validation.length).toBe(0);
+
+    done();
+});
+
+test('Is Date', (done) => { 
+    const model = {
+        dt1 : "2023-04-15",
+        dt2 : "Invalid date string",
+        dt3 : new Date(),
+        dt4: "2023-04-15T00:00:00.000Z",
+        dt5: "2023-04-15T00:00:00.000",
+        dt6: "2023-04-15T00:00:00",
+        dt7: "2023-04-15T00:00",
+        dt8: "2023-04-15T00",
+        dt9: "2023-04-15T00:00:00.000+00:00",
+    }
+
+    const config = {
+        breakOnFirstError : false
+    }
+
+    let validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.dt1).IsDate().ErrorMessage("Model property must be an date")
+        .errors;
+
+    expect(validation.length).toBe(1);
+
+    validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.dt2).IsObject().ErrorMessage("Model property must be an object")
+        .errors;
+
+    expect(validation.length).toBe(0);
+
+    validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.dt3).IsDate().ErrorMessage("Model property must be an date")
+        .errors;
+
+    expect(validation.length).toBe(1);
+
+    validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.dt4).IsDate().ErrorMessage("Model property must be an date")
+        .errors;
+
+    expect(validation.length).toBe(1);
+
+    validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.dt4).IsDate().ErrorMessage("Model property must be an date")
+        .errors;
+
+    expect(validation.length).toBe(1);
+
+    validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.dt5).IsDate().ErrorMessage("Model property must be an date")
+        .errors;
+
+    expect(validation.length).toBe(1);
+
+    validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.dt6).IsDate().ErrorMessage("Model property must be an date")
+        .errors;
+
+    expect(validation.length).toBe(1);
+
+    validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.dt7).IsDate().ErrorMessage("Model property must be an date")
+        .errors;
+
+    expect(validation.length).toBe(1);
+
+    validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.dt8).IsDate().ErrorMessage("Model property must be an date")
+        .errors;
+
+    expect(validation.length).toBe(0);
+
+    validation = new FluentValidation()
+        .Config(config)
+        .RuleFor(model.dt9).IsDate().ErrorMessage("Model property must be an date")
+        .errors;
+
+    expect(validation.length).toBe(1);
+
     done();
 });
