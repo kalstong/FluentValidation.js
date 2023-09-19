@@ -6,6 +6,15 @@ A node.js package for providing a model validation based on a chain of rules wit
 
 [![Tests](https://github.com/kalstong/FluentValidation.js/actions/workflows/nodejs.yml/badge.svg?branch=master)](https://github.com/kalstong/FluentValidation.js/actions/workflows/nodejs.yml)
 
+# Support me
+Here's the option for you to buy me a coffee - if you like my software, if you find it useful and you can, please consider this small gesture for all the hard work I've been putting into these projects.
+
+That would mean a lot to me!
+
+Of course, don't feel pressured if you can't, I will continue to support and create more software.
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/kalstong)
+
 ## Get Started
 This is a [Node.js](https://nodejs.org/en/) module available through the
 [npm registry](https://www.npmjs.com/). Installation is using the
